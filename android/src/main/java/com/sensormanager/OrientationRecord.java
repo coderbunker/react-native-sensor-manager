@@ -89,24 +89,21 @@ public class OrientationRecord implements SensorEventListener {
           float orientation[] = new float[3];
           mSensorManager.getOrientation(R, orientation);
 
-          float heading = orientation[0];
-          float pitch = orientation[1];
-          float roll = orientation[2];
-        //   float heading = (float)((Math.toDegrees(orientation[0])) % 360.0f);
-        //   float pitch = (float)((Math.toDegrees(orientation[1])) % 360.0f);
-        //   float roll = (float)((Math.toDegrees(orientation[2])) % 360.0f);
+          float heading = (float)((Math.toDegrees(orientation[0])) % 360.0f);
+          float pitch = (float)((Math.toDegrees(orientation[1])) % 360.0f);
+          float roll = (float)((Math.toDegrees(orientation[2])) % 360.0f);
 
-        //   if (heading < 0) {
-        //     heading = 360 - (0 - heading);
-        //   }
+          if (heading < 0) {
+            heading = 360 - (0 - heading);
+          }
 
-        //   if (pitch < 0) {
-        //     pitch = 360 - (0 - pitch);
-        //   }
+          if (pitch < 0) {
+            pitch = 360 - (0 - pitch);
+          }
 
-        //   if (roll < 0) {
-        //     roll = 360 - (0 - roll);
-        //   }
+          if (roll < 0) {
+            roll = 360 - (0 - roll);
+          }
 
           i++;
           if ((curTime - lastUpdate) > delay) {

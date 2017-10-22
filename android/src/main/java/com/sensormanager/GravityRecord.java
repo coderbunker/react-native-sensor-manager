@@ -40,7 +40,7 @@ public class GravityRecord implements SensorEventListener {
 	public int start(int delay) {
 		this.delay = delay;
 		if (mGravity != null && isRegistered == 0) {
-			mSensorManager.registerListener(this, mGravity, SensorManager.SENSOR_DELAY_FASTEST);
+			mSensorManager.registerListener(this, mGravity, SensorManager.SENSOR_DELAY_NORMAL);
 			isRegistered = 1;
 			return (1);
 		}
