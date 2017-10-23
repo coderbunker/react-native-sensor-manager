@@ -74,10 +74,13 @@ public class UserAccelerationRecord implements SensorEventListener {
             long curTime = System.currentTimeMillis();
             i++;
             if ((curTime - lastUpdate) > delay) {
-                i = 0;
-				map.putDouble("x", sensorEvent.values[0]);
-				map.putDouble("y", sensorEvent.values[1]);
-				map.putDouble("z", sensorEvent.values[2]);
+				i = 0;
+				float uaX = sensorEvent.values[0] / 9.8;
+				float uaY = sensorEvent.values[1] / 9.8;
+				float uaZ = sensorEvent.values[2] / 9.8;
+				map.putDouble("x", uaX);
+				map.putDouble("y", uaY);
+				map.putDouble("z", uaZ);
 				sendEvent("UserAcceleration", map);
                 lastUpdate = curTime;
             }
