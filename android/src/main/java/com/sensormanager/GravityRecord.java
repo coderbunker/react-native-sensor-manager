@@ -75,9 +75,9 @@ public class GravityRecord implements SensorEventListener {
             i++;
             if ((curTime - lastUpdate) > delay) {
 				i = 0;
-				float gX = sensorEvent.values[0] / 9.8;
-				float gY = sensorEvent.values[1] / 9.8;
-				float gZ = sensorEvent.values[2] / 9.8;
+				double gX = (sensorEvent.values[0]/9.8)*-1;
+				double gY = (sensorEvent.values[1]/9.8)*-1;
+				double gZ = (sensorEvent.values[2]/9.8)*-1;
 				map.putDouble("x", gX);
 				map.putDouble("y", gY);
 				map.putDouble("z", gZ);
