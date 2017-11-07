@@ -40,7 +40,7 @@ public class UserAccelerationRecord implements SensorEventListener {
 	public int start(int delay) {
 		this.delay = delay;
 		if (mUserAcceleration != null && isRegistered == 0) {
-			mSensorManager.registerListener(this, mUserAcceleration, SensorManager.SENSOR_DELAY_NORMAL);
+			mSensorManager.registerListener(this, mUserAcceleration, SensorManager.SENSOR_DELAY_FASTEST);
 			isRegistered = 1;
 			return (1);
 		}
